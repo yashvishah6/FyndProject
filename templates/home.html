@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<br>
+<div class="jumbotron text-center">
+    {% if session.logged_in == NULL%}
+        <h1>Welcome to Fynd</h1>
+        <p class="lead">Would you like to chat with your fellow fynd buddies?</p>
+        <a href="/register" class="btn btn-primary btn-lg">Sign Up</a>
+        <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% else %}
+        <h1>Hi {{ session.s_name }}</h1>
+        <a href="/chatting/{{ session.uid }}" class="btn btn-primary btn-lg">Let's Start Chat</a>
+    {% endif %}
+</div>
+{% endblock %}
